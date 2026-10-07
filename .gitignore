@@ -1,0 +1,118 @@
+# 密钥与运行时文件（含敏感信息，禁止入库）
+token.info
+last_run.json
+settings.json
+*.info
+
+# 本地环境变量（含 ECS 密码 / 访问口令，禁止入库；.env.example 保留为模板）
+.env
+.env.*
+!.env.example
+
+# 智能体私有数据（含明文口令笔记，禁止入库）
+.workbuddy/
+
+# 历史临时探测脚本（含 ECS 明文密码，非交付物，禁止入库）
+_trash/
+
+# 含 ECS root 密码的部署脚本，禁止入库
+deploy*.py
+_sync_creds.py
+change_key.py
+explore*.py
+verify*.py
+
+# 华为凭据与运行时产物（含敏感信息，禁止入库）
+hw_credentials.json
+hw_cookie.txt
+hw_cookies.json
+hw_keeper.heartbeat
+hw_keeper.log
+hw_keeper.out.log
+hw_autopush.log
+hw_need_login.flag
+
+# 浏览器持久化 profile：内含登录态 Cookie，一旦入库等于把账号送出去
+hw_profile/
+trae_profile/
+hw_probe_profile/
+
+# 抓取/调试产物
+hw_capture.log
+hw_capture.out.log
+hw_netlog.jsonl
+hw_shot.png
+hw_shot.txt
+hw_chunks/
+*_probe*.json
+diag*.txt
+
+# 接口探测/调试产物（非交付物，排查接口时临时生成）
+probe*.py
+_asar/
+node_modules/
+*.html
+config-*.js
+vendor-*.js
+idx.js
+checkin.log
+
+# Python 缓存
+__pycache__/
+*.pyc
+mm_web_token.json
+mm_token.json
+trae_jwt.txt
+trae_device_id.txt
+trae_cookie.txt
+trae_cookie.json
+linkai_token.txt
+# OiiOii 登录态（Supabase access token / session，等同账号密码，禁止入库）
+oiioii_token.txt
+oiioii_session.json
+lx_cookie.txt
+coze_cookie.txt
+jimeng_cookie.txt
+# 扣子官方 logo（已 base64 内联进 web_server.py，独立 png 仅本地留档，不入库）
+coze_logo.png
+
+# Qoder 登录态（本机从客户端取出的 access token，禁止入库）
+qoder_token.txt
+_qd_auth.json
+_qd_campaigns_dump.json
+# 千帆登录态（明文 token，禁止入库）
+qf_token.txt
+
+# 各平台签到运行时状态（非交付物）
+*_last_run.json
+# 华为「当日已签」本地标记（短效会话优化用，运行态）
+hw_today_done.json
+# 派猫猫旅行：浏览器 Cookie（HttpOnly，等同账号密码）与运行时状态，禁止入库
+wb_travel_cookie.txt
+travel_state.json
+
+# Windows 批处理在仓库里必须保持 CRLF（见 .gitattributes），
+# 但本地转换/测试产生的临时文件不必入库
+_t_*.bat
+_t_*.out
+
+# 无头浏览器验证脚本 / 截图（一次性自检产物）
+_verify_*
+
+# Trae 限流重试持久化状态（运行态，重启后由服务自动恢复）
+trae_retry_state.json
+
+# 华为工具链本地运行产物（日志 / PID 文件 / 解包前端资产，非交付物，禁止入库）
+huawei/hw_watch.log
+huawei/hw_autopush.out.log
+huawei/hw_pids.txt
+huawei/hw_index.js
+
+# Qoder 本机守护运行产物（token/配置/日志/状态，等同账号密码与本机凭据，禁止入库）
+qoder_keeper/qoder_token.txt
+qoder_keeper/config.json
+qoder_keeper/qoder_keeper.log
+qoder_keeper/qoder_keeper.out.log
+qoder_keeper/qoder_state.json
+qoder_local_status.json
+
